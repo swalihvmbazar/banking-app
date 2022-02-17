@@ -38,5 +38,6 @@
                 </form>
             </div>
         </div>
+        <p class="text-center mt-4">Don't have an account <a href="{{ route('register') }}">Sign Up</a></p>
     </div>
 </x-guest-layout>
