@@ -4,11 +4,11 @@
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item d-flex align-items-center mr-2 {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                     <i class="fa fa-home"></i>
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('dashboard') }}">Home</a>
                 </li>
-                <li class="nav-item d-flex align-items-center">
+                <li class="nav-item d-flex align-items-center {{ request()->routeIs('deposit') ? 'active' : '' }}">
                     <i class="fa fa-upload"></i>
-                    <a class="nav-link" aria-current="page" href="#">Deposit</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('deposit') }}">Deposit</a>
                 </li>
 
                 <li class="nav-item d-flex align-items-center">
