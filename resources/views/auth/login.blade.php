@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="container mt-5 w-25">
-        <h4 class="text-center">ABC BANK</h4>
+        @include('components.application-logo')
         <div class="card mt-4">
             <div class="card-body">
                 <h5 class="mb-5">Login to your account</h5>

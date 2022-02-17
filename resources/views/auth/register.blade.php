@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="container mt-5 w-25">
-        <h4 class="text-center">Banking App</h4>
+        @include('components.application-logo')
         <div class="card mt-4">
             <div class="card-body">
                 <h4 class="mb-5">Create new account</h4>
@@ -35,8 +35,8 @@
                             placeholder="Enter Your Password" required>
                     </div>
                     <div class="form-check mt-3">
-                        <input class="form-check-input" type="checkbox" value="" id="agree_terms_policy">
-                        <label class="form-check-label" for="agree_terms_policy">
+                        <input class="form-check-input" type="checkbox" value="true" name="agree_terms_and_policy" id="agree_terms_and_policy">
+                        <label class="form-check-label" for="agree_terms_and_policy">
                             Agree the <a href="#">terms and policy</a>
                         </label>
                       </div>
