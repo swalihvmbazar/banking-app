@@ -22,7 +22,7 @@ class RegistrationController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required','min:8'],
-            'agree_terms_policy' => ['required'],
+            'agree_terms_and_policy' => ['required'],
         ]);
 
         $user = User::create([
