@@ -1,11 +1,9 @@
 <x-guest-layout>
     <div class="container mt-5 w-25">
-        <h4 class="text-center">Banking App</h4>
+        <h4 class="text-center">ABC BANK</h4>
         <div class="card mt-4">
-            <div class="card-header">
-                <h3>Login</h3>
-            </div>
             <div class="card-body">
+                <h5 class="mb-5">Login to your account</h5>
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <p><strong>Opps Something went wrong</strong></p>
