@@ -89,14 +89,12 @@ class TransactionController extends Controller
                 $transfer_from->transactions()->create([
                     'amount' => $validated['amount'],
                     'type' => Transaction::DEBIT,
-                    'balance' => $transfer_from->balance->getAttributes()['amount'] - $validated['amount'],
                     'transfer_id' => $transfer->id,
                 ]);
 
                 $transfer_to->transactions()->create([
                     'amount' => $validated['amount'],
                     'type' => Transaction::CREDIT,
-                    'balance' => $transfer_to->balance->getAttributes()['amount'] + $validated['amount'],
                     'transfer_id' => $transfer->id,
                 ]);
             });
@@ -117,8 +115,7 @@ class TransactionController extends Controller
             $user->transactions()->create(
                 [
                     'amount' => $validated['amount'],
-                    'type' => $type,
-                    'balance' => $user->balance->getAttributes()['amount'] + $validated['amount'],
+                    'type' => $type
                 ]
             );
         });
