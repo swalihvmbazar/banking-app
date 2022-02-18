@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegistrationController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/deposit', [TransactionController::class, 'showDepositForm'])->name('deposit');
+    Route::post('/deposit', [TransactionController::class, 'depositMoney']);
 
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });
