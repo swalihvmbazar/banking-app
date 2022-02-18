@@ -28,13 +28,17 @@ class TransactionController extends Controller
                     [
                         'amount' => $validated['amount'],
                         'type' => Transaction::CREDIT,
-                        'balance' => $user->balance->amount + $validated['amount'],
+                        'balance' => $user->balance->getAttributes()['amount'] + $validated['amount'],
                     ]
                 );
             });
         } catch (Exception $e) {
             Log::info($e);
-            dd($e);
+            return redirect()->back()->withErrors("Something went wrong!");
         }
+
+        return redirect()->back()->with([
+            'success' => true
+        ]);
     }
 }

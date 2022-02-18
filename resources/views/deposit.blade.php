@@ -16,6 +16,12 @@
                     </div>
                 @endif
 
+                @if (session()->has('success'))
+                    <div class="alert alert-success">
+                        Successfully deposited
+                    </div>
+                @endif
+
                 <form action="{{ route('deposit') }}" method="post">
                     @csrf
                     <div class="form-group">
