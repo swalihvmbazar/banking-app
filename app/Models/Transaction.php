@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Transaction extends Model
 {
-    protected $fillable = ['amount','type','balance'];
+    protected $fillable = ['amount','type','balance', 'transfer_id'];
 
     const CREDIT = 'credit';
     const DEBIT = 'debit';

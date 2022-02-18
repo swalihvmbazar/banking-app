@@ -16,9 +16,9 @@
                     <a class="nav-link" aria-current="page" href="{{ route('withdraw') }}">Withdraw</a>
                 </li>
 
-                <li class="nav-item d-flex align-items-center">
+                <li class="nav-item d-flex align-items-center {{ request()->routeIs('transfer') ? 'active' : '' }}">
                     <i class="fa fa-arrow-right"></i>
-                    <a class="nav-link" aria-current="page" href="#">Transfer</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('transfer') }}">Transfer</a>
                 </li>
               
                 <li class="nav-item d-flex align-items-center">

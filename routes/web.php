@@ -44,6 +44,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/withdraw', [TransactionController::class, 'showWithdrawForm'])->name('withdraw');
     Route::post('/withdraw', [TransactionController::class, 'withDrawMoney']);
+    
+    Route::get('/transfer', [TransactionController::class, 'showTransferForm'])->name('transfer');
+    Route::post('/transfer', [TransactionController::class, 'transfer']);
 
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });
