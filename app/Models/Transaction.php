@@ -12,6 +12,9 @@ class Transaction extends Model
     const CREDIT = 'credit';
     const DEBIT = 'debit';
 
+    /* the amount stored in database as integers. So here defined
+     the accessor and mutator to convert amount data accordingly
+    */
     protected function amount(): Attribute
     {
         return new Attribute(
@@ -20,6 +23,9 @@ class Transaction extends Model
         );
     }
 
+    /* the amount stored in database as integers. So here defined
+     the accessor and mutator to convert amount data accordingly
+    */
     protected function balance(): Attribute
     {
         return new Attribute(
@@ -27,6 +33,7 @@ class Transaction extends Model
         );
     }
 
+    // Here defined a accessor for getting details (transaction type)
     public function getDetailsAttribute()
     {
         if ($this->transfer_id != null) {
@@ -56,6 +63,7 @@ class Transaction extends Model
     {
         parent::boot();
 
+        // Model observer created to calculate user balance for each transactions while creating the transaction
         static::creating(function ($transaction) {
             if ($transaction->type === self::CREDIT) {
                 $transaction->balance = $transaction->user->balance->attributes['amount'] +  $transaction->attributes['amount'];
@@ -64,6 +72,7 @@ class Transaction extends Model
             }
         });
 
+        // Model observer created to update user balance on account balance table after created the transaction
         static::created(function ($transaction) {
             if ($transaction->type === self::CREDIT) {
                 $transaction->user->balance()->increment('amount', $transaction->attributes['amount']);

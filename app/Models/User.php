@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -56,6 +55,8 @@ class User extends Authenticatable
     protected static function boot()
     {
         parent::boot();
+
+        // Model observer created to insert intial balance on account balance table
         static::created(function($user) {
             $user->balance()->create();
         });

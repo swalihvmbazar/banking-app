@@ -108,16 +108,15 @@ class TransactionController extends Controller
         ]);
     }
 
+
     protected function addTransaction($validated, $type)
     {
         DB::transaction(function () use ($validated, $type) {
             $user = auth()->user();
-            $user->transactions()->create(
-                [
-                    'amount' => $validated['amount'],
-                    'type' => $type
-                ]
-            );
+            $user->transactions()->create([
+                'amount' => $validated['amount'],
+                'type' => $type
+            ]);
         });
     }
 
