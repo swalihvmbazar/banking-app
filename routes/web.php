@@ -42,5 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/deposit', [TransactionController::class, 'showDepositForm'])->name('deposit');
     Route::post('/deposit', [TransactionController::class, 'depositMoney']);
 
+    Route::get('/withdraw', [TransactionController::class, 'showWithdrawForm'])->name('withdraw');
+    Route::post('/withdraw', [TransactionController::class, 'withDrawMoney']);
+
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });

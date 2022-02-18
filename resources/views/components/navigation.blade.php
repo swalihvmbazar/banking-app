@@ -11,9 +11,9 @@
                     <a class="nav-link" aria-current="page" href="{{ route('deposit') }}">Deposit</a>
                 </li>
 
-                <li class="nav-item d-flex align-items-center">
+                <li class="nav-item d-flex align-items-center {{ request()->routeIs('withdraw') ? 'active' : '' }}">
                     <i class="fa fa-download"></i>
-                    <a class="nav-link" aria-current="page" href="#">Withdraw</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('withdraw') }}">Withdraw</a>
                 </li>
 
                 <li class="nav-item d-flex align-items-center">
