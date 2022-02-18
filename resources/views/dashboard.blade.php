@@ -8,7 +8,7 @@
             </tr>
             <tr>
                 <th>YOUR BALANCE</th>
-                <td>12000.00</td>
+                <td>{{ auth()->user()->balance->amount }}</td>
             </tr>
         </table>
     </div>

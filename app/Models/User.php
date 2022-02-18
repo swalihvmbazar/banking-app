@@ -41,4 +41,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function balance()
+    {
+        return $this->hasOne(AccountBalance::class,'user_id','id');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::created(function($user) {
+            $user->balance()->create();
+        });
+    }
 }
