@@ -23,7 +23,7 @@
                                 </td>
                                 <td>{{ $transaction->created_at->format('d-m-Y h:i A') }}</td>
                                 <td>{{ $transaction->amount }}</td>
-                                <td>{{ $transaction->type }}</td>
+                                <td>{{ ucfirst($transaction->type) }}</td>
                                 <td>{{ $transaction->details }}</td>
                                 <td>{{ $transaction->balance }}</td>
                             </tr>
