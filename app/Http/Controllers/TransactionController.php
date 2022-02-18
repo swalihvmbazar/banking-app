@@ -120,4 +120,16 @@ class TransactionController extends Controller
             );
         });
     }
+
+
+    public function statement()
+    {
+        $transactions = auth()->user()
+            ->transactions()
+            ->with('transfer', 'transfer.from_user', 'transfer.to_user')
+            ->latest()
+            ->paginate(5);
+
+        return view('statement', compact('transactions'));
+    }
 }

@@ -24,14 +24,33 @@ class Transaction extends Model
     {
         return new Attribute(
             get: fn ($value) => number_format(($value / 100), 2),
-            set: fn ($value) => $value * 100,
         );
+    }
+
+    public function getDetailsAttribute()
+    {
+        if ($this->transfer_id != null) {
+            if ($this->type == self::CREDIT) {
+                return 'Transfer from ' . $this->transfer->from_user->email;
+            }
+            return 'Transfer to ' . $this->transfer->to_user->email;
+        } else if ($this->type == self::CREDIT) {
+            return 'Deposit';
+        } else {
+            return 'Withdraw';
+        }
     }
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+
+    public function transfer()
+    {
+        return $this->belongsTo(AccountTransfer::class, 'transfer_id', 'id');
+    }
+
 
     protected static function boot()
     {

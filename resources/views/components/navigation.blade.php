@@ -21,9 +21,9 @@
                     <a class="nav-link" aria-current="page" href="{{ route('transfer') }}">Transfer</a>
                 </li>
               
-                <li class="nav-item d-flex align-items-center">
+                <li class="nav-item d-flex align-items-center {{ request()->routeIs('statement') ? 'active' : '' }}">
                     <i class="fa fa-file"></i>
-                    <a class="nav-link" aria-current="page" href="#">Statement</a>
+                    <a class="nav-link" aria-current="page" href="{{ route('statement') }}">Statement</a>
                 </li>
 
             </ul>

@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/transfer', [TransactionController::class, 'showTransferForm'])->name('transfer');
     Route::post('/transfer', [TransactionController::class, 'transfer']);
+    
+    Route::get('/statement', [TransactionController::class, 'statement'])->name('statement');
 
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
 });
